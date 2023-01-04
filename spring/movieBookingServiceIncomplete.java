@@ -31,7 +31,25 @@ List<MovieBookingDTO> getBookingByScreenName(String screenName)
 List<MovieBooking> newList=movieBookingRepository.findByScreenName(screenName);
 if(newList.isEmpty==true)
   throw new MovieBookingException("MovieBookingService.NO_BOOKING);
-List<MovieBookingDTO>
+List<MovieBookingDTO> newDtoList=new ArrayList<>();
+for(MovieBooking iterate:newList)
+{
+  MovieBookingDTO dto=MovieBookingDTO.prepareDTO(iterate);
+  newDtoList.add(dto);
+}
+return newDtoList;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
